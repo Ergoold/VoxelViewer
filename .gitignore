@@ -1,0 +1,6 @@
+# intellij config files
+.idea
+*.iml
+
+# build output directory
+out
