@@ -34,6 +34,10 @@ public class Model {
         return voxels[0].length;
     }
 
+    public int height() {
+        return voxels[0].length;
+    }
+
     public int depth() {
         return voxels[0][0].length;
     }
