@@ -11,7 +11,7 @@ public class ModelPane extends JPanel {
     /**
      * The size of each voxel in the view.
      */
-    private static final int VOXEL_SIZE = 16;
+    private static final int VOXEL_SIZE = 32;
 
     /**
      * The model this pane displays.
