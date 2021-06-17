@@ -103,6 +103,9 @@ public class VoxelContentPane extends JPanel {
         var maxY = modelPane.model().height() - 1;
         layer.setValue(0);
         layer.setMaximum(maxY);
+        // This may look bad with large heights, but it's the best we can without diving into the depths of Swing.
+        layer.setPreferredSize(
+                new Dimension(layer.getPreferredSize().width + 10, modelPane.getPreferredSize().height));
         ghosts.setModel(new SpinnerNumberModel(0, 0, maxY, 1));
         repaint();
         pack.invoke();
