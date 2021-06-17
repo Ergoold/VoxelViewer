@@ -29,4 +29,12 @@ public class Model {
     public boolean[][] getLayer(int layer) {
         return voxels[layer];
     }
+
+    public int width() {
+        return voxels[0].length;
+    }
+
+    public int depth() {
+        return voxels[0][0].length;
+    }
 }
