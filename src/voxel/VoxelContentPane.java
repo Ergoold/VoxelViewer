@@ -101,7 +101,6 @@ public class VoxelContentPane extends JPanel {
         modelPane.setGhosts(0);
         modelPane.setModel(model);
         var maxY = modelPane.model().height() - 1;
-        System.out.println(maxY);
         layer.setValue(0);
         layer.setMaximum(maxY);
         ghosts.setModel(new SpinnerNumberModel(0, 0, maxY, 1));
