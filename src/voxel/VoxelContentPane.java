@@ -29,22 +29,22 @@ public class VoxelContentPane extends JPanel {
     /**
      * The pane that displays the actual model.
      */
-    private ModelPane modelPane;
+    private final ModelPane modelPane = new ModelPane();
 
     /**
      * The slider determining the currently viewed layer.
      */
-    private JSlider layer;
+    private final JSlider layer = new JSlider(JSlider.VERTICAL, 0, 0, 0);
 
     /**
      * The spinner determining the amount of ghost layers displayed.
      */
-    private JSpinner ghosts;
+    private final JSpinner ghosts = new JSpinner();
 
     /**
      * The button for opening a new model.
      */
-    private JButton open;
+    private final JButton open = new JButton("Open");
 
     /**
      * The file chooser for opening new model files.
@@ -58,16 +58,12 @@ public class VoxelContentPane extends JPanel {
 
     public VoxelContentPane(VoidCallback pack) {
         this.pack = pack;
-        modelPane = new ModelPane();
-        layer = new JSlider(JSlider.VERTICAL, 0, 0, 0);
         layer.setMajorTickSpacing(5);
         layer.setMinorTickSpacing(1);
         layer.setPaintLabels(true);
         layer.setPaintTicks(true);
-        ghosts = new JSpinner();
-        openModel(DEFAULT_MODEL);
-        open = new JButton("Open");
         open.setMnemonic('o');
+        openModel(DEFAULT_MODEL);
         setLayout(new GridBagLayout());
         add(modelPane, gridBagConstraints(0, 0, 2));
         add(layer, gridBagConstraints(2, 0));
