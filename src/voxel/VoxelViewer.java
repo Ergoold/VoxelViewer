@@ -1,11 +1,10 @@
 package voxel;
 
 import javax.swing.*;
-import java.io.IOException;
 
 public class VoxelViewer {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         JFrame frame = new JFrame("Voxel Viewer");
         var pane = new VoxelContentPane(frame::pack);
         frame.setContentPane(pane);
