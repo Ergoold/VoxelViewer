@@ -26,7 +26,7 @@ public class Model {
         return voxels[y][x][z];
     }
 
-    public boolean[][] getLayer(int layer) {
+    public boolean[][] layer(int layer) {
         return voxels[layer];
     }
 
