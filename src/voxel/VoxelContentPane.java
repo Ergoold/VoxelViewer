@@ -17,6 +17,16 @@ public class VoxelContentPane extends JPanel {
     private static final Model DEFAULT_MODEL = new Model(16, 16, 16);
 
     /**
+     * The inset above and below each component.
+     */
+    private static final int VERTICAL_INSET = 4;
+
+    /**
+     * The inset to the left and right of each component.
+     */
+    private static final int HORIZONTAL_INSET = 8;
+
+    /**
      * The pane that displays the actual model.
      */
     private ModelPane modelPane;
@@ -109,7 +119,7 @@ public class VoxelContentPane extends JPanel {
     }
 
     private GridBagConstraints gridBagConstraints(int x, int y, int width, int anchor) {
-        var insets = new Insets(0, 0, 0, 0);
+        var insets = new Insets(VERTICAL_INSET, HORIZONTAL_INSET, VERTICAL_INSET, HORIZONTAL_INSET);
         return new GridBagConstraints(x, y, width, 1, 0., 0., anchor, NONE, insets, 0, 0);
     }
 
