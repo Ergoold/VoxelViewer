@@ -28,11 +28,6 @@ public class ModelPane extends JPanel {
      */
     private int ghosts = 0;
 
-    public ModelPane(Model model) {
-        this.model = model;
-        setPreferredSize(new Dimension(model.width() * VOXEL_SIZE, model.depth() * VOXEL_SIZE));
-    }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -49,6 +44,15 @@ public class ModelPane extends JPanel {
                 }
             }
         }
+    }
+
+    public Model model() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+        setPreferredSize(new Dimension(model.width() * VOXEL_SIZE, model.depth() * VOXEL_SIZE));
     }
 
     public void setLayer(int layer) {
