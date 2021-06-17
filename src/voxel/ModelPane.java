@@ -32,9 +32,11 @@ public class ModelPane extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (var i = ghosts; i >= 0; i--) {
+            var currentLayer = this.layer - i;
+            if (currentLayer < 0) continue;
             var x = (int) (255. / (ghosts + 1) * i);
             g.setColor(new Color(x, x, x));
-            var coordinates = model.layer(layer - i);
+            var coordinates = model.layer(currentLayer);
             for (int row = 0; row < coordinates.length; row++) {
                 final boolean[] rowArr = coordinates[row];
                 for (int col = 0; col < rowArr.length; col++) {
