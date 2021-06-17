@@ -24,7 +24,7 @@ public class ModelIO {
      * @return a {@code Model} that contains all of the voxels in the CSV file, and only those
      * @throws IOException when failing to read file
      */
-    public Model fromCSV(Path path) throws IOException {
+    public static Model fromCSV(Path path) throws IOException {
         var lines = Files.readAllLines(path);
         var coordinates = new ArrayList<int[]>();
         for (var line : lines) {
@@ -38,7 +38,7 @@ public class ModelIO {
             if (maxY < coordinate[1]) maxY = coordinate[1];
             if (maxZ < coordinate[2]) maxZ = coordinate[2];
         }
-        var model = new Model(maxX, maxY ,maxZ);
+        var model = new Model(maxX + 1, maxY + 1 ,maxZ + 1);
         for (var coordinate : coordinates) model.addVoxel(coordinate[0], coordinate[1], coordinate[2]);
         return model;
     }
@@ -49,7 +49,7 @@ public class ModelIO {
      * @param csvRow a row of csv data
      * @return an array of the integers in the csv row
      */
-    private int[] read(String csvRow) {
+    private static int[] read(String csvRow) {
         var values = csvRow.split(", ");
         var ints = new int[values.length];
         for (var i = 0; i < values.length; i++) ints[i] = Integer.parseInt(values[i]);
